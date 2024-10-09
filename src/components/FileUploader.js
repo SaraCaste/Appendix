@@ -5,13 +5,14 @@ import * as XLSX from 'xlsx'; // Library for xlsx operations
 const FileUploader = () => {
   const [file, setFile] = useState(null); 
   const [fileName, setFileName] = useState(''); // State to hold the file name
-  const [setUploading] = useState(false);
+  const [uploading, setUploading] = useState(false);
   const [sheetInfo, setSheetInfo] = useState([]); // To store sheet names, row and column counts
   const [selectedSheets, setSelectedSheets] = useState([]); // To track selected sheets
   const [page, setPage] = useState("1"); // To change sheet view
   const [selectAll, setSelectAll] = useState(true); // To track "Select All" state of the checkboxes
   const [uploadStatus, setUploadStatus] = useState(''); // State for showing upload status
   const [error, setError] = useState(''); // State for holding error message
+  const [message, setMessage] = useState('');
 
 
   // Handle file change
@@ -102,20 +103,25 @@ const FileUploader = () => {
 
   // Upload the filtered file to Supabase
   const uploadFile = async () => {
+    // Validate if any sheets have been selected
     if (selectedSheets.length === 0) {
       setError('Please select at least one sheet before uploading.');
       return;
     }
 
+    if (!file) return;
+
     try {
       setUploading(true);
-      // Read the file again to create a filtered version
+      setUploadStatus(''); // Reset upload status
+      setError(''); // Clear any previous error
+
       const reader = new FileReader();
       reader.onload = async (e) => {
         const data = new Uint8Array(e.target.result);
         const filteredBlob = createFilteredWorkbook(data);
 
-        const fileName = `filtered_{${file.name}`;
+        const fileName = `filtered_${Date.now()}_${file.name}`;
         const { data: supabaseData, error } = await supabase.storage
           .from('uploads')
           .upload(fileName, filteredBlob, { cacheControl: '3600', upsert: false });
@@ -123,11 +129,12 @@ const FileUploader = () => {
         if (error) {
           throw error;
         }
+        setMessage(`File uploaded successfully: ${supabaseData.Key}`);
         setUploadStatus('success');
-        setError('');
       };
       reader.readAsArrayBuffer(file);
     } catch (error) {
+      setMessage(`Error uploading file: ${error.message}`);
       setUploadStatus('error');
     } finally {
       setUploading(false);
