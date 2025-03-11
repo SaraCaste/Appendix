@@ -144,10 +144,10 @@ const FileUploader = () => {
       reader.onload = async (e) => {
         const data = new Uint8Array(e.target.result);
         const filteredWorkbook = newWorkbook(data);
-        
+ 
         const { data: supabaseData, error } = await supabase.storage
           .from("Data Donation Platform")
-          .upload(`filtered_${file.name}`, filteredWorkbook, { cacheControl: "3600", upsert: false });
+          .upload(`filtered_${Date.now()}_${file.name}`, filteredWorkbook, { cacheControl: "3600", upsert: false });
 
         if (error) throw error;
 
