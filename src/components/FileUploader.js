@@ -1,5 +1,5 @@
 import React, { useState } from 'react'; // Library for the UI
-import { supabase } from '../supabaseClient'; // Library for the database
+import { supabase } from '../SupabaseClient'; // Library for the database
 import * as XLSX from 'xlsx'; // Library for xlsx operations
 
 const FileUploader = () => {
