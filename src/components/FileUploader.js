@@ -3,49 +3,73 @@ import { supabase } from '../supabaseClient'; // Library for the database
 import * as XLSX from 'xlsx'; // Library for xlsx operations
 
 const FileUploader = () => {
-  const [file, setFile] = useState(null); 
-  const [fileName, setFileName] = useState(''); // State to hold the file name
-  const [uploading, setUploading] = useState(false);
-  const [sheetInfo, setSheetInfo] = useState([]); // To store sheet names, row and column counts
-  const [selectedSheets, setSelectedSheets] = useState([]); // To track selected sheets
-  const [page, setPage] = useState("1"); // To change sheet view
-  const [selectAll, setSelectAll] = useState(true); // To track "Select All" state of the checkboxes
-  const [uploadStatus, setUploadStatus] = useState(''); // State for showing upload status
-  const [error, setError] = useState(''); // State for holding error message
-  const [message, setMessage] = useState('');
+  // State constants for managing UI and file data 
+  const [file, setFile] = useState(null); // Stores selected file
+  const [fileName, setFileName] = useState(''); // Stores the file name
+  const [upload, setUploading] = useState(false); // Upload process status
+  const [sheetInfo, setSheetInfo] = useState([]); // Stores sheet names, row and column counts
+  const [selectedSheets, setSelectedSheets] = useState([]); // Stores selected sheets
+  const [page, setPage] = useState("1"); // Tracks sheet view for navigation
+  const [selectAll, setSelectAll] = useState(true); // Tracks "Select All" state of the checkboxes
+  const [uploadStatus, setUploadStatus] = useState(''); // Tracks upload success/error status
+  const [error, setError] = useState(''); // Holds error message
+  const [message, setMessage] = useState(''); // Stores user messages
 
-
-  // Handle file change
-  const handleFileChange = (event) => {
+  /**
+   * Handles file selection and validation.
+   * Reads the file and extracts sheet details.
+   * @param {Event} event - The file input change event
+   */
+  const uploadFile = (event) => {
     const selectedFile = event.target.files[0];
-    setFile(selectedFile); // Save the selected file
-    setFileName(selectedFile.name); // Update the file name state
-    setError(''); // Clear any previous error when a file is selected
+    if (!selectedFile) return;
 
-    // Read the Excel file
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const data = new Uint8Array(e.target.result);
-      const workbook = XLSX.read(data, { type: 'array' });
+    // Allowed file extensions
+    const extensions = [".xlsx", ".xls"];
+    const fileExtension = selectedFile.name.split(".").pop().toLowerCase();
 
-      // Extract sheet names, row and column counts
-      const sheets = workbook.SheetNames.map((sheetName) => {
-        const sheet = workbook.Sheets[sheetName];
-        const jsonSheet = XLSX.utils.sheet_to_json(sheet, { header: 1 }); // Sheet in JSON format for easier handling
+    // Validate file format
+    if (!extensions.includes(`.${fileExtension}`)) {
+      setError("Invalid file format. Please select an Excel file (.xlsx, .xls).");
+      setFile(null);
+      setFileName("");
+      setSheetInfo([]);
+      return;
+    }
+  
+      setFile(selectedFile); 
+      setFileName(selectedFile.name); 
+      setError(""); 
 
-        const rowCount = jsonSheet.length; // Number of rows
-        const columnCount = jsonSheet[0] ? jsonSheet[0].length : 0; // Number of columns 
+      // Read the Excel file
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        try {
+          const data = new Uint8Array(e.target.result);
+          const workbook = XLSX.read(data, { type: 'array' });
 
-        return { sheetName, rowCount, columnCount };
-      });
+          // Extract sheet names, row and column counts
+          const sheets = workbook.SheetNames.map((sheetName) => {
+            const sheet = workbook.Sheets[sheetName];
+            const jsonSheet = XLSX.utils.sheet_to_json(sheet, { header: 1 }); // Sheet in JSON format for easier handling
 
-      // Update sheet info state
-      setSheetInfo(sheets);
-    };
-    reader.readAsArrayBuffer(selectedFile);
+            return {
+              sheetName,
+              rowCount: jsonSheet.length,
+              columnCount: jsonSheet[0] ? jsonSheet[0].length : 0
+            };
+        });
+
+        // Update sheet info state
+        setSheetInfo(sheets);
+      } catch (err) {
+        setError("Error processing file. Please try again.");
+      }
   };
+  reader.readAsArrayBuffer(selectedFile);
+};
 
-  // Sheet's descriptions
+  // Description of the sheets
   const description = ["of the customer e.g. registration date, birth date, age, gender, city and postal code.",
     "of the purchased products in the supermarket, including name of the filial, city, postal code, name of the product and price. This is the most important information needed to get sustainability and health insights.",
     "of the number of points collected in each shopping trip.",
@@ -56,29 +80,26 @@ const FileUploader = () => {
     "about the number of times the App/Web was opened.*",
     "about the number of times the Newsletter was visited.*"]
   
-  // Handle checkbox 
-  const handleCheckboxChange = (sheetName) => {
-    if (selectedSheets.includes(sheetName)) {
-      setSelectedSheets(selectedSheets.filter((name) => name !== sheetName));
-    } else {
-      setSelectedSheets([...selectedSheets, sheetName]);
-    }
-  };
+    /**
+   * Handles selection of sheets.
+   * @param {string} sheetName - The name of the sheet to toggle selection
+   */ 
+    // Handle checkbox 
+    const selectOneCheckbox = (sheetName) => {
+      if (selectedSheets.includes(sheetName)) {
+        setSelectedSheets(selectedSheets.filter((name) => name !== sheetName));
+      } else {
+        setSelectedSheets([...selectedSheets, sheetName]);
+      }
+    };
 
-  // Handle "Select/Unselect All" 
-  const handleSelectAllChange = () => {
-    if (selectAll) {
-      // If currently selecting all, deselect all
-      setSelectedSheets([]);
-    } else {
-      // If currently deselecting all, select all
-      setSelectedSheets(sheetInfo.map((sheet) => sheet.sheetName));
-    }
+  const selectAllCheckbox  = () => {
+    setSelectedSheets(selectAll ? [] : sheetInfo.map((sheet) => sheet.sheetName));
     setSelectAll(!selectAll);
-  };
+  }; 
 
   // Handle error message "Continue" button click
-  const handleContinue = () => {
+  const continueButton = () => {
     if (!file) {
       setError('Please choose a file before continuing.');
       return;
@@ -86,51 +107,53 @@ const FileUploader = () => {
     setPage("2");
   };
 
-   // Function to create a new workbook with only selected sheets
-   const createFilteredWorkbook = (data) => {
+  /**
+   * Creates a new Excel workbook containing only selected sheets.
+   * @param {Uint8Array} data - Original Excel file data
+   * @returns {Blob} - New Excel file with selected sheets
+   */
+   const newWorkbook = (data) => {
     const workbook = XLSX.read(data, { type: 'array' });
     const newWorkbook = XLSX.utils.book_new();
 
     selectedSheets.forEach((sheetName) => {
-      const originalSheet = workbook.Sheets[sheetName];
-      XLSX.utils.book_append_sheet(newWorkbook, originalSheet, sheetName);
+      const originalSheets = workbook.Sheets[sheetName];
+      XLSX.utils.book_append_sheet(newWorkbook, originalSheets, sheetName);
     });
 
     // Write the workbook to a binary format
-    const wbout = XLSX.write(newWorkbook, { bookType: 'xlsx', type: 'array' });
-    return new Blob([wbout], { type: 'application/octet-stream' });
+    const binWorkbook = XLSX.write(newWorkbook, { bookType: 'xlsx', type: 'array' });
+    return new Blob([binWorkbook], { type: 'application/octet-stream' });
   };
 
-  // Upload the filtered file to Supabase
-  const uploadFile = async () => {
-    // Validate if any sheets have been selected
+  /**
+   * Uploads selected sheets to Supabase storage.
+   */
+  const uploadFileSupabase = async () => {
     if (selectedSheets.length === 0) {
       setError('Please select at least one sheet before uploading.');
       return;
     }
-
     if (!file) return;
+    setUploading(true);
+    setUploadStatus("");
+    setError(''); 
 
     try {
-      setUploading(true);
-      setUploadStatus(''); // Reset upload status
-      setError(''); // Clear any previous error
-
       const reader = new FileReader();
       reader.onload = async (e) => {
         const data = new Uint8Array(e.target.result);
-        const filteredBlob = createFilteredWorkbook(data);
-
-        const fileName = `filtered_${Date.now()}_${file.name}`;
+        const filteredWorkbook = newWorkbook(data);
+        
         const { data: supabaseData, error } = await supabase.storage
-          .from('uploads')
-          .upload(fileName, filteredBlob, { cacheControl: '3600', upsert: false });
+          .from("Data Donation Platform")
+          .upload(`filtered_${file.name}`, filteredWorkbook, { cacheControl: "3600", upsert: false });
 
-        if (error) {
-          throw error;
-        }
+        if (error) throw error;
+
         setMessage(`File uploaded successfully: ${supabaseData.Key}`);
-        setUploadStatus('success');
+        setUploadStatus("success");
+        setPage("3");
       };
       reader.readAsArrayBuffer(file);
     } catch (error) {
@@ -151,9 +174,11 @@ const FileUploader = () => {
               <h2>File Upload</h2>
             </div>
             <div className="card-body">
-              <p className="card-text">Please select the <strong>Excel</strong> file sent by Deutschland Card. In case this comes in a zip file, please extract it on your computer and make sure the uploaded file is not password protected.</p>
-              <label htmlFor="choose_file_btn" className="btn btn-warning">Choose file</label>
-              <input id="choose_file_btn" style={{display:"none"}} type="file" onChange={handleFileChange}  accept=".xlsx, .xls"/>
+              <p className="card-text">Please select the <strong>Excel </strong> 
+              file sent by Deutschland Card. In case this comes in a zip file, 
+              please extract it on your computer and upload one file. Make sure the uploaded file is not password protected.</p>
+              <label htmlFor="choose_file_btn" className="btn btn-success text-light">Select file</label>
+              <input id="choose_file_btn" style={{display:"none"}} type="file" onChange={uploadFile}  accept=".xlsx, .xls"/>
               {/* Display the name of the selected file */}
               {fileName && (
                 <p className="mt-3"><strong>Selected file:</strong> {fileName}</p>
@@ -167,7 +192,7 @@ const FileUploader = () => {
           <nav aria-label="Page navigation example">
             <ul className="pagination">
               <li className="page-item">
-                <button onClick={handleContinue} className="page-link bg-primary text-light">Continue</button>
+                <button onClick={continueButton} className="page-link bg-warning text-dark">Next</button>
               </li>
             </ul>
           </nav>
@@ -175,10 +200,14 @@ const FileUploader = () => {
       ) : null}
 
       {page === "2" && (
-        <div class="w-75">
+        <div className="w-75">
           {/* Page 2: Checkbox logic for selecting sheets */}
           <h3>Select Sheets to Donate</h3>
-          <p>Below you will find details about the contents of the file you submitted. Please review the information carefully and <strong>select</strong> the sheets you wish to <strong>share</strong>. After reviewing, click on the 'Yes, share for research' button at the bottom of this page. By sharing this data, you are helping us to understand health and sustainability behaviors in society.</p>
+          <p>Below you will find details about the contents of the file you submitted. The <strong>Transaktionen</strong> sheet contains the most important information for research.
+             Please review the information carefully and <strong>select </strong> 
+             the sheets you wish to <strong>share</strong>. 
+             After reviewing, click on the <strong>'Yes, share for research'</strong> button at the bottom of this page. 
+             By sharing this data, you are helping us to understand health and sustainability behaviors in society.</p>
           <form>
             <div className="form-check mb-3">
               <input
@@ -186,7 +215,7 @@ const FileUploader = () => {
                     type="checkbox"
                     id="select_all"
                     checked={selectedSheets.length === sheetInfo.length}
-                    onChange={handleSelectAllChange}
+                    onChange={selectAllCheckbox}
               />
               <label className="form-check-label" htmlFor="select_all" value="">
                      Select/Unselect All
@@ -202,23 +231,23 @@ const FileUploader = () => {
                   value={sheet.sheetName}
                   id={`sheet_${index}`}
                   checked={selectedSheets.includes(sheet.sheetName)}
-                  onChange={() => handleCheckboxChange(sheet.sheetName)}
+                  onChange={() => selectOneCheckbox(sheet.sheetName)}
                 />
                 <label className="form-check-label" htmlFor={`sheet_${index}`}>
                   <strong>Sheet:</strong>  {sheet.sheetName} <div></div> <strong># Rows: </strong>{sheet.rowCount}, <strong># Columns:</strong> {sheet.columnCount}
                   <div> </div><strong>Details:</strong> This sheet contains information {description[index]}
                 
-                  <div class="row mb-1"> </div>
+                  <div className="row mb-1"> </div>
                   </label>
               </div>
             ))}
           </form>
 
             {/* Upload button */}
-          <div class="row">
+          <div className="row">
             <div>
                 {/* FilePreview processes and displays the file details */}                 
-                      <button id="upload_btn" class="btn btn-primary"  onClick={uploadFile}> Yes, share for research </button>
+                      <button id="upload_btn" class="btn btn-warning"  onClick={uploadFileSupabase}> Yes, share for research </button>
 
                 {/* Show upload status message */}
                   {uploadStatus === 'success' && (
@@ -233,6 +262,14 @@ const FileUploader = () => {
           </div>
         </div>
       )}
+
+      {page === "3" && (
+        <div className="text-left mt-5">
+          <h2>Thank you for your contribution!</h2>
+          <p>Your data has been successfully shared for research purposes. You can close this page now</p>
+        </div>
+      )}
+
     </div>
   );
 };
