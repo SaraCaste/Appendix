@@ -179,11 +179,9 @@ const FileUploader = () => {
               please extract it on your computer and upload one file. Make sure the uploaded file is not password protected.</p>
               <label htmlFor="choose_file_btn" className="btn btn-success text-light">Select file</label>
               <input id="choose_file_btn" style={{display:"none"}} type="file" onChange={uploadFile}  accept=".xlsx, .xls"/>
-              {/* Display the name of the selected file */}
               {fileName && (
                 <p className="mt-3"><strong>Selected file:</strong> {fileName}</p>
               )}
-             {/* Display error message if there's one */}
              {error && (
                 <p className="text-danger mt-2">{error}</p>
               )}
@@ -201,7 +199,7 @@ const FileUploader = () => {
 
       {page === "2" && (
         <div className="w-75">
-          {/* Page 2: Checkbox logic for selecting sheets */}
+          {/* Page 2: Selection of sheets */}
           <h3>Select Sheets to Donate</h3>
           <p>Below you will find details about the contents of the file you submitted. The <strong>Transaktionen</strong> sheet contains the most important information for research.
              Please review the information carefully and <strong>select </strong> 
@@ -243,26 +241,22 @@ const FileUploader = () => {
             ))}
           </form>
 
-            {/* Upload button */}
           <div className="row">
-            <div>
-                {/* FilePreview processes and displays the file details */}                 
+            <div>              
                       <button id="upload_btn" class="btn btn-warning"  onClick={uploadFileSupabase}> Yes, share for research </button>
 
-                {/* Show upload status message */}
                   {uploadStatus === 'success' && (
                     <span className="text-success ms-3">Upload successful! Thank you.</span>
                   )}
                   {uploadStatus === 'error' && (
                     <span className="text-danger ms-3">Upload failed. Try again.</span>
                   )}
-                  {/* Display the error message if no sheets are selected */}
                   {error && <p className="text-danger mt-2">{error}</p>}
             </div>
           </div>
         </div>
       )}
-
+      {/* Page 3: End message */}
       {page === "3" && (
         <div className="text-left mt-5">
           <h2>Thank you for your contribution!</h2>
