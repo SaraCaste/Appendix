@@ -168,9 +168,10 @@ const FileUploader = () => {
       {/* Page 0: Overview of process */}
       {page === "0" ? (
         <div className="page0">
+          <div className="container-fluid">
           <nav className="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
             <div className="container">
-                <a className="navbar-brand fw-bold" href="#page-top">Better Shopping</a> 
+                <a className="navbar-brand fw-bold">Better Shopping</a> 
             </div>
           </nav>
           <header className="masthead">
@@ -195,18 +196,19 @@ const FileUploader = () => {
           </header>
           <section className="features">
             <div className="container">      
-              <div className="row">
+              <div className="row flex-row flex-nowrap">
                   <div className="col-3 md-2 mb-5">
-                    <div className="text-center">                                     
+                    <div className="text-center2">                                     
                         <h3 className="display-3">Upload</h3> 
                         <p className="h4 text-muted mb-0">Upload the shopping data</p>
                     </div>
                   </div>
                   <div className="col-1 md-2 mb-5">
-                    <img src={arrow} className="arrow" alt="arrow" /> 
+                    {/*<img src={arrow} className="arrow" alt="arrow" /> */}
+                    <h1 >&rarr;</h1>
                   </div>
                   <div className="col-3 md-2 mb-5">                                   
-                      <div className="text-center">
+                      <div className="text-center2">
                           <h3 className="display-3">Enrich</h3>
                           <p className="h4 text-muted mb-0">An enrichment of the data will be done with the help of{' '}
                           <a href="https://world.openfoodfacts.org/" target="_blank" rel="noreferrer">
@@ -216,10 +218,11 @@ const FileUploader = () => {
                       </div>
                   </div>   
                   <div className="col-1 md-2 mb-5">
-                      <img src={arrow} className="arrow" alt="arrow" /> 
+                      {/*<img src={arrow} className="arrow" alt="arrow" /> */}
+                      <h1 >&rarr;</h1>
                   </div>
                   <div className="col-3 md-2 mb-5">                                   
-                      <div className="text-center">
+                      <div className="text-center2">
                           <h3 className="display-3">Explore</h3>
                           <p className="h4 text-muted mb-0">You will be able to download a file with the results and start exploring!</p>
                       </div>
@@ -234,6 +237,7 @@ const FileUploader = () => {
               </li>
             </ul>
           </nav>
+          </div>
         </div>
       ) : null}
       {/* Page 1: File Upload */}
@@ -261,7 +265,7 @@ const FileUploader = () => {
                 <li className="page-item-back">
                   <button onClick={() => setPage("0")} className="page-link bg-warning text-dark">Back</button>
                 </li>
-                <li className="page-item-continue">
+                <li className="page-item-continue" class="next">
                   <button onClick={handleContinue} className="page-link bg-warning text-dark">Continue</button>
                 </li>
               </ul>
@@ -293,7 +297,7 @@ const FileUploader = () => {
                         Back
                       </button>
                     </li>
-                    <li className="page-item-continue">
+                    <li className="page-item-continue" class="next">
                       <button onClick={startEnrichment} className="page-link bg-success text-light" type="button" disabled={uploading}>
                         Start
                       </button>

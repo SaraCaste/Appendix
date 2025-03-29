@@ -1,12 +1,17 @@
 .page0 {
   padding:0px;
-  margin-left: 0px;
+  margin-left: 30px;
   font-family: sans-serif;
+  width:100%;
+}
+
+.navbar {
+  background-color: white;
+  margin-left: 30px;
 }
 
 .masthead {
-  padding-top: 15px;
-  padding-bottom: 50px;
+  padding-top: 0px;
   height: 430px;
 }
 
@@ -17,17 +22,12 @@
 .features {
   padding-top: 35px;
 }
-.arrow {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 80px;
-}
 
 .page-item {
   margin: 0;
   position: absolute;
   margin-left: 45%;
+  margin-right: 45%;
   padding-bottom: 10px;
 }
 
