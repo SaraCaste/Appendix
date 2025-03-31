@@ -37,19 +37,19 @@ In Windows PowerShell:
 
 ### Linux 
 Pre-requisites:
-  - Install [Node.js (+ npm)]
+  - Install Node.js (+ npm)
     ```sh
     sudo apt update
     sudo apt install nodejs npm -y
-   ```
-  - Install [Git]
+    ```
+  - Install Git
     ```sh
     sudo apt install git -y
-   ```
-  - Install [Python]
+    ```
+  - Install Python
     ```sh
     sudo apt install python3 python3-pip python3-venv -y
-   ```
+    ```
   - Install [Chrome](https://www.google.com/chrome/)
 
 In the Terminal:  
