@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import FileUploader from './FileUploader'; // Main code
+import React, { useState } from "react"; // React framework
+import Enricher from './Enricher'; // Main code
 import 'bootstrap/dist/css/bootstrap.css'; // CSS Framework for design 
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="container-fluid">
       <div className="col-12">
-        <FileUploader onFileSelect={setSelectedFile} />
+        <Enricher onFileSelect={setSelectedFile} />
       </div>
     </div>
   );

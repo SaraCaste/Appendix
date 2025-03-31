@@ -1,20 +1,18 @@
-import React, { useState } from 'react'; 
-import shopping_cart from './images/shopping_cart.png';
-import arrow from './images/arrow.png';
-import './Home.css'; 
-import './Upload.css'; 
-import './Select.css'; 
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import React, { useState } from 'react'; // React framework
+import shopping_cart from './images/shopping_cart.png'; // Image
+import './Home.css'; // CSS Framework for design 
+import './Upload.css'; // CSS Framework for design 
+import './Select.css'; // CSS Framework for design 
+import { toast } from "react-toastify"; // Error library
+import "react-toastify/dist/ReactToastify.css"; // Error CSS Framework for design 
 
-const FileUploader = () => {
+const Enricher = () => {
   // State constants for managing UI and file data 
   const [file, setFile] = useState(null); // Stores selected file
   const [fileName, setFileName] = useState(''); // Stores the file name
   const [uploading, setUploading] = useState(false); // Upload process status
   const [page, setPage] = useState("0"); // Tracks sheet view for navigation
   const [error, setError] = useState(''); // Holds error message
-  const [message, setMessage] = useState(''); // Stores user messages
  
   /**
    * Handles file selection and validation.
@@ -71,11 +69,13 @@ const FileUploader = () => {
           body: blob,
         });
 
+        // If the POST request fails
         if (!response.ok) {
-          const errorText = await response.text(); // Get backend error message
+          const errorText = await response.text(); 
           throw new Error(`Backend error: ${errorText}`);
         }
 
+        // If the POST request succeess
         if (response.ok) {
           // If the backend responds successfully, receive the enriched CSV file as a Blob
           const csvBlob = await response.blob();
@@ -123,8 +123,6 @@ const FileUploader = () => {
     /**
    * Handles file file enrichment/upload process
    */
-
- 
   const startEnrichment = async () => {
   try {
     // Indicate that uploading is in progress
@@ -140,16 +138,13 @@ const FileUploader = () => {
       try {
         // Convert the file data to a Uint8Array for binary processing
         const data = new Uint8Array(e.target.result);
-        // Call a Python function (likely through an API) with the binary data
+        // Call a Python function with the binary data
         await callPythonFunction(data);
-        // Notify user of successful upload
-        setMessage("File uploaded successfully.");
         // Navigate to the next page/step
         setPage("3");
       } catch (err) {
         // Log and display any errors that occur during processing
         console.error(err);
-        setMessage("Error during file processing.");
         toast.error("Error during file processing: " + err.message);
       } finally {
         // Reset uploading state regardless of success or failure
@@ -161,7 +156,6 @@ const FileUploader = () => {
     reader.onerror = () => {
       // Reset uploading state and display error message
       setUploading(false);
-      setError("Error reading the file.");
       toast.error("Error reading the file.");
     };
 
@@ -170,7 +164,6 @@ const FileUploader = () => {
   } catch (err) {
     // Handle unexpected errors during the overall process
     console.error(err);
-    setMessage(`Error uploading file: ${err.message}`);
     toast.error("Unexpected error: " + err.message);
     setUploading(false);
   }
@@ -217,7 +210,6 @@ const FileUploader = () => {
                     </div>
                   </div>
                   <div className="col-1 md-2 mb-5">
-                    {/*<img src={arrow} className="arrow" alt="arrow" /> */}
                     <h1 >&rarr;</h1>
                   </div>
                   <div className="col-3 md-2 mb-5">                                   
@@ -231,7 +223,6 @@ const FileUploader = () => {
                       </div>
                   </div>   
                   <div className="col-1 md-2 mb-5">
-                      {/*<img src={arrow} className="arrow" alt="arrow" /> */}
                       <h1 >&rarr;</h1>
                   </div>
                   <div className="col-3 md-2 mb-5">                                   
@@ -330,7 +321,6 @@ const FileUploader = () => {
                 </div>
 
                 <div  className="mt-3">
-                  {message && <p className="alert alert-info">{message}</p>}
                   {error && <p className="alert alert-danger">{error}</p>}
                  </div>
             </div>
@@ -350,4 +340,4 @@ const FileUploader = () => {
   );
 };
 
-export default FileUploader;
+export default Enricher;
