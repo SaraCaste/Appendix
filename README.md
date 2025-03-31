@@ -2,13 +2,13 @@
 
 ## Data Matching Module
 
+### Windows
 Pre-requisites:
   - Install [Node.js (+ npm)](https://nodejs.org/en/download)
   - Install [Git](https://git-scm.com/downloads/win)
   - Install [Python](https://www.python.org/downloads/)
   - Install [Chrome](https://www.google.com/chrome/)
-
-### Windows
+    
 In Windows PowerShell:  
 
 1. Clone this repository
@@ -25,6 +25,7 @@ In Windows PowerShell:
    ```sh
    cd backend
    python -m venv venv
+   venv\Scripts\activate
    pip install -r requirements.txt
    ```
 4. Run the app in the root folder
@@ -35,3 +36,59 @@ In Windows PowerShell:
 5. Follow instructions and enrich the data!
 
 ### Linux 
+Pre-requisites:
+  - Install [Node.js (+ npm)]
+    ```sh
+    sudo apt update
+    sudo apt install nodejs npm -y
+   ```
+  - Install [Git]
+    ```sh
+    sudo apt install git -y
+   ```
+  - Install [Python]
+    ```sh
+    sudo apt install python3 python3-pip python3-venv -y
+   ```
+  - Install [Chrome](https://www.google.com/chrome/)
+
+In the Terminal:  
+
+1. Clone this repository
+   ```sh
+   git clone https://github.com/SaraCaste/data-enriching-platform
+   cd data-enriching-platform
+   cd data-matching-module
+   ```
+2. Inside the Data Matching Module install dependencies
+   ```sh
+   npm run install-all
+   ```
+3. Create a virtual environment inside the backend folder and install project requirements
+   ```sh
+   cd backend
+   python3 -m venv venv
+   source venv/bin/activate
+   pip install -r requirements.txt
+   ```
+4. Run the app in the root folder
+   ```sh
+   cd ..
+   npm run start
+   ```
+5. Follow instructions and enrich the data!
+
+### macOS 
+
+
+
+
+
+
+
+
+
+
+
+
+
