@@ -8,7 +8,8 @@
   - Install [Python](https://www.python.org/downloads/)
   - Install [Chrome](https://www.google.com/chrome/)
 
-In Windows PowerShell: 
+In Windows PowerShell:  
+
 2. Clone this repository
    ```sh
    git clone https://github.com/SaraCaste/data-enriching-platform
