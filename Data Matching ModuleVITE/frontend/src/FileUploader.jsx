@@ -4,6 +4,8 @@ import arrow from './images/arrow.png';
 import './Home.css'; 
 import './Upload.css'; 
 import './Select.css'; 
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const FileUploader = () => {
   // State constants for managing UI and file data 
@@ -69,6 +71,11 @@ const FileUploader = () => {
           body: blob,
         });
 
+        if (!response.ok) {
+          const errorText = await response.text(); // Get backend error message
+          throw new Error(`Backend error: ${errorText}`);
+        }
+
         if (response.ok) {
           // If the backend responds successfully, receive the enriched CSV file as a Blob
           const csvBlob = await response.blob();
@@ -88,6 +95,7 @@ const FileUploader = () => {
       } catch (error) {
         // Log any unexpected errors during the request
         console.error("Error:", error);
+        throw error;
       }
     };
   
@@ -115,6 +123,8 @@ const FileUploader = () => {
     /**
    * Handles file file enrichment/upload process
    */
+
+ 
   const startEnrichment = async () => {
   try {
     // Indicate that uploading is in progress
@@ -140,6 +150,7 @@ const FileUploader = () => {
         // Log and display any errors that occur during processing
         console.error(err);
         setMessage("Error during file processing.");
+        toast.error("Error during file processing: " + err.message);
       } finally {
         // Reset uploading state regardless of success or failure
         setUploading(false);
@@ -151,6 +162,7 @@ const FileUploader = () => {
       // Reset uploading state and display error message
       setUploading(false);
       setError("Error reading the file.");
+      toast.error("Error reading the file.");
     };
 
     // Start reading the file as an ArrayBuffer (binary data)
@@ -159,6 +171,7 @@ const FileUploader = () => {
     // Handle unexpected errors during the overall process
     console.error(err);
     setMessage(`Error uploading file: ${err.message}`);
+    toast.error("Unexpected error: " + err.message);
     setUploading(false);
   }
 };
@@ -260,12 +273,12 @@ const FileUploader = () => {
                 )}
               </div>
             </div>
-            <nav aria-label="Page navigation example">
+            <nav aria-label="Page navigation">
               <ul className="pagination">
                 <li className="page-item-back">
                   <button onClick={() => setPage("0")} className="page-link bg-warning text-dark">Back</button>
                 </li>
-                <li className="page-item-continue" class="next">
+                <li className={"page-item-continue"+ ' ' + "next"}>
                   <button onClick={handleContinue} className="page-link bg-warning text-dark">Continue</button>
                 </li>
               </ul>
@@ -290,14 +303,14 @@ const FileUploader = () => {
 
               <div className="row">
               <div>
-                <nav aria-label="Page navigation example">
+                <nav aria-label="Page navigation">
                   <ul className="pagination">
                     <li className="page-item-back">
                       <button onClick={() => setPage("1")} className="page-link bg-warning text-dark" disabled={uploading}>
                         Back
                       </button>
                     </li>
-                    <li className="page-item-continue" class="next">
+                    <li className={"page-item-continue"+ ' ' + "next"} >
                       <button onClick={startEnrichment} className="page-link bg-success text-light" type="button" disabled={uploading}>
                         Start
                       </button>
