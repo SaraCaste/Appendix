@@ -118,7 +118,7 @@ In the Terminal:
 
 ## Database Processing Module
 Pre-requisites:
-  - Install Python (according to your operating system, see [Data Matching Module section]((https://github.com/SaraCaste/data-enriching-platform/edit/main/README.md#data-matching-module)))
+  - Install Python (according to your operating system, see [Data Matching Module section](#Data-Matching-Module)
 
 
 
