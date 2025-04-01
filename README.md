@@ -79,6 +79,38 @@ In the Terminal:
 5. Follow instructions and enrich the data!
 
 ### macOS 
+Pre-requisites:
+  - Install Node.js (+ npm), Git and python
+    ```sh
+    brew install node git python
+    ```
+  - Install [Chrome](https://www.google.com/chrome/)
+
+In the Terminal:  
+
+1. Clone this repository
+   ```sh
+   git clone https://github.com/SaraCaste/data-enriching-platform
+   cd data-enriching-platform
+   cd data-matching-module
+   ```
+2. Inside the Data Matching Module install dependencies
+   ```sh
+   npm run install-all
+   ```
+3. Create a virtual environment inside the backend folder and install project requirements
+   ```sh
+   cd backend
+   python3 -m venv venv
+   source venv/bin/activate
+   pip install -r requirements.txt
+   ```
+4. Run the app in the root folder
+   ```sh
+   cd ..
+   npm run start
+   ```
+5. Follow instructions and enrich the data!
 
 
 
