@@ -84,7 +84,7 @@ Pre-requisites:
     ```sh
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     ```
-  - Install Node.js (+ npm), Git and python
+  - Install Node.js (+ npm), Git and Python
     ```sh
     brew install node git python
     ```
@@ -116,8 +116,9 @@ In the Terminal:
    ```
 5. Follow instructions and enrich the data!
 
-
-
+## Database Processing Module
+Pre-requisites:
+  - Install Python (according to your operating system, see [Data Matching Module section]((https://github.com/SaraCaste/data-enriching-platform/edit/main/README.md#data-matching-module)))
 
 
 
