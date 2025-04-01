@@ -80,6 +80,10 @@ In the Terminal:
 
 ### macOS 
 Pre-requisites:
+  - Install Homebrew
+    ```sh
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    ```
   - Install Node.js (+ npm), Git and python
     ```sh
     brew install node git python
