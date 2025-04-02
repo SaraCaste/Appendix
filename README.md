@@ -120,7 +120,7 @@ In the Terminal:
 Pre-requisites:
   - Install Python (according to your operating system, see [Data Matching Module section](#Data-Matching-Module)
 
-
+1. Run the [updateOFF.py](https://github.com/SaraCaste/data-enriching-platform/tree/main/database-processing-module) in your prefered interface. But [Visual Studio Code](https://code.visualstudio.com/Download) is recomended for running, testing and adjusting.
 
 
 
