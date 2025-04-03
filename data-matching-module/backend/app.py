@@ -159,7 +159,7 @@ def process_request():
     columns_to_extract = ['TRANSAKTIONSDATUM','PARTNER','ARTIKELCODE', 'ARTIKELBESCHREIBUNG', 'INCENTIVIERTER_UMSATZ' ]  
     participants_db = pd.read_excel(io.BytesIO(raw_data), usecols=columns_to_extract)
     # Filter and normalize participants data
-    participants_db = participants_db[participants_db["PARTNER"].str.contains("Edeka|Marktkauf",case=False, na=False)]
+    participants_db = participants_db[participants_db["PARTNER"].str.contains("Edeka|Marktkauf|Article",case=False, na=False)]
     participants_db.drop('PARTNER', axis=1, inplace=True)
     participants_db.fillna(0, inplace=True) 
     participants_db['ARTIKELBESCHREIBUNG'] = participants_db['ARTIKELBESCHREIBUNG'].astype(str).str.strip().str.lower()
