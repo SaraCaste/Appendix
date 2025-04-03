@@ -1,6 +1,6 @@
 import React, { useState } from 'react'; // Library for the UI
 import './App.css'; // CSS file design
-import FileUploader from './components/FileUploader'; // Main Data Donation Platform code
+import Enricher from './components/Enricher'; // Main Data Donation Platform code
 import 'bootstrap/dist/css/bootstrap.css'; // CSS Framework for design 
 
 function App() {
@@ -19,10 +19,9 @@ function App() {
       </div>
 
       <div className="row mb-3">
-        {/* FileUploader logic with file selection and upload */}
         <div className="col-1"></div>
         <div className="col-11">
-          <FileUploader onFileSelect={setSelectedFile} />
+          <Enricher onFileSelect={setSelectedFile} />
         </div>
         <div className="col-11"></div>
         </div>
