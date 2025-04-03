@@ -205,7 +205,7 @@ const Donation = () => {
           {/* Page 2: Selection of sheets */}
           <h3>Select Sheets to Donate</h3>
           <p>Below you will find details about the contents of the file you submitted. The <strong>
-            {sheetInfo.slice(1, 2).map((sheet) => (
+            {sheetInfo.map((sheet) => (
                 <label> {sheet.sheetName} </label> 
             ))}
             </strong> sheet contains the most important information for research.
