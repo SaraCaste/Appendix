@@ -51,7 +51,7 @@ const Donation = () => {
           // Extract sheet names, row and column counts
           const sheets = workbook.SheetNames.map((sheetName) => {
             const sheet = workbook.Sheets[sheetName];
-            const jsonSheet = XLSX.utils.sheet_to_json(sheet, { header: 1 }); // Sheet in JSON format for easier handling
+            const jsonSheet = XLSX.utils.sheet_to_json(sheet, { header: 1 });
 
             return {
               sheetName,
@@ -70,15 +70,18 @@ const Donation = () => {
 };
 
   // Description of the sheets
-  const description = ["of the customer e.g. registration date, birth date, age, gender, city and postal code.",
-    "of the purchased products in the supermarket, including name of the filial, city, postal code, name of the product and price. This is the most important information needed to get sustainability and health insights.",
-    "of the number of points collected in each shopping trip.",
-    "of the coupons that were available.*",
-    "of the campaigns that were available.*",
-    "about the number of times the coupons site was visited in the App/Web.*",
-    "about the number of clicks on publicity.*",
-    "about the number of times the App/Web was opened.*",
-    "about the number of times the Newsletter was visited.*"]
+  const description = {"Analytische KPIs": "This sheet contains information of the customer e.g. registration date, birth date, age, gender, city and postal code.",
+    "Transaktionen": "This sheet contains information of the purchased products, including name of the filial, city, postal code, name of the product and price. This is the most important information needed to get sustainability and health insights.",
+    "Buchungen": "This sheet contains information of the number of points collected in each shopping trip.",
+    "Coupons": "This sheet contains information of the coupons that were available.",
+    "Kampagnen": "This sheet contains information of the campaigns that were available.",
+    "Couponcenter": "This sheet contains information about the number of times the coupons site was visited in the App/Web.",
+    "Werbeflaechenklicks": "This sheet contains information about the number of clicks on publicity.",
+    "Seitenaufrufe": "This sheet contains information about the number of times the App/Web was opened.",
+    "Newsletter": "This sheet contains information about the number of times the Newsletter was visited.",
+    "Nutzerdaten":"This sheet contains information of the customer e.g. registration date, birth date, age, gender, city and postal code.",
+    "Statistikdaten": "This sheet contains information of the purchased products, including name of the supermarket, name of the product and price. This is the most important information needed to get sustainability and health insights.",
+    "Zugriffe":"This sheet contains information about accesses to the account"}
   
     /**
    * Handles selection of sheets.
@@ -201,7 +204,11 @@ const Donation = () => {
         <div className="w-75">
           {/* Page 2: Selection of sheets */}
           <h3>Select Sheets to Donate</h3>
-          <p>Below you will find details about the contents of the file you submitted. The <strong>Transaktionen</strong> sheet contains the most important information for research.
+          <p>Below you will find details about the contents of the file you submitted. The <strong>
+            {sheetInfo.slice(1, 2).map((sheet) => (
+                <label> {sheet.sheetName} </label> 
+            ))}
+            </strong> sheet contains the most important information for research.
              Please review the information carefully and <strong>select </strong> 
              the sheets you wish to <strong>share</strong>. 
              After reviewing, click on the <strong>'Yes, share for research'</strong> button at the bottom of this page. 
@@ -233,7 +240,7 @@ const Donation = () => {
                 />
                 <label className="form-check-label" htmlFor={`sheet_${index}`}>
                   <strong>Sheet:</strong>  {sheet.sheetName} <div></div> <strong># Rows: </strong>{sheet.rowCount}, <strong># Columns:</strong> {sheet.columnCount}
-                  <div> </div><strong>Details:</strong> This sheet contains information {description[index]}
+                  <div> </div><strong>Details:</strong> {description[sheet.sheetName]|| "unknown data."}
                 
                   <div className="row mb-1"> </div>
                   </label>
