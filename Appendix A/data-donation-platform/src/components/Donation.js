@@ -2,7 +2,7 @@ import React, { useState } from 'react'; // Library for the UI
 import { supabase } from '../SupabaseClient'; // Library for the database
 import * as XLSX from 'xlsx'; // Library for xlsx operations
 
-const Enricher = () => {
+const Donation = () => {
   // State constants for managing UI and file data 
   const [file, setFile] = useState(null); // Stores selected file
   const [fileName, setFileName] = useState(''); // Stores the file name
@@ -268,4 +268,4 @@ const Enricher = () => {
   );
 };
 
-export default Enricher;
+export default Donation;

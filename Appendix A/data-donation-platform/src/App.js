@@ -1,6 +1,6 @@
 import React, { useState } from 'react'; // Library for the UI
 import './App.css'; // CSS file design
-import Enricher from './components/Enricher'; // Main Data Donation Platform code
+import Donation from './components/Donation'; // Main Data Donation Platform code
 import 'bootstrap/dist/css/bootstrap.css'; // CSS Framework for design 
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
       <div className="row mb-3">
         <div className="col-1"></div>
         <div className="col-11">
-          <Enricher onFileSelect={setSelectedFile} />
+          <Donation onFileSelect={setSelectedFile} />
         </div>
         <div className="col-11"></div>
         </div>
