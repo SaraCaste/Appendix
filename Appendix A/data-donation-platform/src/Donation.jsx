@@ -1,5 +1,5 @@
 import React, { useState } from 'react'; // Library for the UI
-import { supabase } from './SupabaseClient'; // Library for the database
+import { supabase } from './SupabaseClient'; // Credentials for Supabase
 import * as XLSX from 'xlsx'; // Library for xlsx operations
 
 const Donation = () => {
