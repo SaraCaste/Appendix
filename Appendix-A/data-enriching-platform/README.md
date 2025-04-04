@@ -14,6 +14,7 @@ In Windows PowerShell:
 1. Clone this repository
    ```sh
    git clone https://github.com/SaraCaste/Appendix
+   cd Appendix
    cd Appendix-A
    cd data-enriching-platform
    cd data-matching-module
@@ -58,6 +59,7 @@ In the Terminal:
 1. Clone this repository
    ```sh
    git clone https://github.com/SaraCaste/Appendix
+   cd Appendix
    cd Appendix-A
    cd data-enriching-platform
    cd data-matching-module
@@ -97,6 +99,7 @@ In the Terminal:
 1. Clone this repository
    ```sh
    git clone https://github.com/SaraCaste/Appendix
+   cd Appendix
    cd Appendix-A
    cd data-enriching-platform
    cd data-matching-module
