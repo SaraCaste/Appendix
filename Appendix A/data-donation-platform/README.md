@@ -10,4 +10,4 @@ See Supabase plans and restrictions: https://supabase.com/pricing
 
 - Use another Storage solution
 In Appendix A/data-donation-platform/src the file Donation.jsx adjust the following:
-  - Eliminate Supabase credentials in (Line 2)[https://github.com/SaraCaste/Appendix/blob/8e3c6388d257ae4b61b5d98e478c5f9b03f27286/Appendix%20A/data-donation-platform/src/Donation.jsx#L2] 
+  - Eliminate Supabase credentials in (Line 2) https://github.com/SaraCaste/Appendix/blob/8e3c6388d257ae4b61b5d98e478c5f9b03f27286/Appendix%20A/data-donation-platform/src/Donation.jsx#L2 
