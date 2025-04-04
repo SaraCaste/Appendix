@@ -13,7 +13,7 @@ In Windows PowerShell:
 
 1. Clone this repository
    ```sh
-   git clone https://github.com/SaraCaste/data-enriching-platform
+   git clone https://github.com/SaraCaste/Appendix/Appendix-A/data-enriching-platform
    cd data-enriching-platform
    cd data-matching-module
    ```
@@ -56,7 +56,7 @@ In the Terminal:
 
 1. Clone this repository
    ```sh
-   git clone https://github.com/SaraCaste/data-enriching-platform
+   git clone https://github.com/SaraCaste/Appendix/Appendix-A/data-enriching-platform
    cd data-enriching-platform
    cd data-matching-module
    ```
@@ -94,7 +94,7 @@ In the Terminal:
 
 1. Clone this repository
    ```sh
-   git clone https://github.com/SaraCaste/data-enriching-platform
+   git clone https://github.com/SaraCaste/Appendix/Appendix-A/data-enriching-platform
    cd data-enriching-platform
    cd data-matching-module
    ```
@@ -120,7 +120,14 @@ In the Terminal:
 Pre-requisites:
   - Install Python (according to your operating system, see [Data Matching Module section](#Data-Matching-Module)
 
-1. Run the [updateOFF.py](https://github.com/SaraCaste/data-enriching-platform/tree/main/database-processing-module) in your prefered interface. But [Visual Studio Code](https://code.visualstudio.com/Download) is recomended for running, testing and adjusting.
+1. Clone this repository
+   ```sh
+   git clone https://github.com/SaraCaste/Appendix/Appendix-A/data-enriching-platform
+   cd data-enriching-platform
+   cd database-processing-module
+   ```
+
+2. Open and run the [updateOFF.py](https://github.com/SaraCaste/data-enriching-platform/tree/main/database-processing-module) code in your prefered interface. But [Visual Studio Code](https://code.visualstudio.com/Download) is recomended for running, testing and adjusting.
 
 
 
