@@ -13,6 +13,6 @@ In Appendix A/data-donation-platform/src the file Donation.jsx adjust the follow
   - Eliminate Supabase credentials 
   https://github.com/SaraCaste/Appendix/blob/8e3c6388d257ae4b61b5d98e478c5f9b03f27286/Appendix%20A/data-donation-platform/src/Donation.jsx#L2 
   - Change the uploadFileSupabase() arrow function for a fuction that aligns with your Storage solution. 
-  https://github.com/SaraCaste/Appendix/blob/6b6661e31ccd9f55616992bdae41322432830887/Appendix%20A/data-donation-platform/src/Donation.jsx#L135C9-L135C27
+  https://github.com/SaraCaste/Appendix/blob/6b6661e31ccd9f55616992bdae41322432830887/Appendix%20A/data-donation-platform/src/Donation.jsx#L135
   - Update the call to the uploadFileSupabase() arrow function
   https://github.com/SaraCaste/Appendix/blob/6b6661e31ccd9f55616992bdae41322432830887/Appendix%20A/data-donation-platform/src/Donation.jsx#L253
