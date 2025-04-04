@@ -1,6 +1,6 @@
 import React, { useState } from 'react'; // Library for the UI
 import './App.css'; // CSS file design
-import Donation from './components/Donation'; // Main Data Donation Platform code
+import Donation from './Donation'; // Main Data Donation Platform code
 import 'bootstrap/dist/css/bootstrap.css'; // CSS Framework for design 
 
 function App() {
