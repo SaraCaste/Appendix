@@ -124,16 +124,36 @@ In the Terminal:
 
 ## Database Processing Module
 Pre-requisites:
-  - Install Python (according to your operating system, see [Data Matching Module section](#Data-Matching-Module)
+  - Install Python (according to your operating system, see [Data Matching Module section](#Data-Matching-Module))
 
 1. Clone this repository
    ```sh
-   git clone https://github.com/SaraCaste/Appendix/Appendix-A/data-enriching-platform
+   git clone https://github.com/SaraCaste/Appendix
+   cd Appendix
+   cd Appendix-A
    cd data-enriching-platform
    cd database-processing-module
    ```
 
-2. Open and run the [updateOFF.py](https://github.com/SaraCaste/data-enriching-platform/tree/main/database-processing-module) code in your prefered interface. But [Visual Studio Code](https://code.visualstudio.com/Download) is recomended for running, testing and adjusting.
+2. Open and run the [updateOFF.py](https://github.com/SaraCaste/data-enriching-platform/tree/main/database-processing-module) code in your prefered tool. But [Visual Studio Code](https://code.visualstudio.com/Download) is recomended for running, testing and adjusting.
+
+# 4	Application Implementation 
+## 4.2	Data Enriching Platform (DEP)
+### 4.2.1	Database Processing Module (DPM)
+(...) This module can be programmed to run automatically on a local machine, or it can be runed when the researcher considers it useful. After running it, it uploads the cleaned and updated OFF database to Supabase, where it is always available for use. By running periodically, the module ensures that the product information is not deprecated.
+
+Options:
+
+- Keep Supabase as Storage solution <br/>
+In Appendix-A/data-enriching-platform/database-processing-module the file updateOFF.py contains the credentials to connect with Supabase. Currently that account is the one that receives the updated Open Food Facts database. Adjust this file with your Supabase credentials.
+https://github.com/SaraCaste/Appendix/blob/0b8fcf0ef629096232f3029c8cf32e9fa7f21678/Appendix-A/data-enriching-platform/database-processing-module/updateOFF.py#L50
+https://github.com/SaraCaste/Appendix/blob/0b8fcf0ef629096232f3029c8cf32e9fa7f21678/Appendix-A/data-enriching-platform/database-processing-module/updateOFF.py#L51
+https://github.com/SaraCaste/Appendix/blob/0b8fcf0ef629096232f3029c8cf32e9fa7f21678/Appendix-A/data-enriching-platform/database-processing-module/updateOFF.py#L52
+
+See Supabase plans and restrictions: https://supabase.com/pricing
+
+- Use another Storage solution <br/>
+In Appendix-A/data-donation-platform/src in the file Donation.jsx adjust the following:
 
 
 
