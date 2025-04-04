@@ -146,13 +146,16 @@ Options:
 
 - Keep Supabase as Storage solution <br/>
 In Appendix-A/data-enriching-platform/database-processing-module the file updateOFF.py contains the credentials to connect with Supabase. Currently that account is the one that receives the updated Open Food Facts database. Adjust this file with your Supabase credentials.
-https://github.com/SaraCaste/Appendix/blob/0b8fcf0ef629096232f3029c8cf32e9fa7f21678/Appendix-A/data-enriching-platform/database-processing-module/updateOFF.py#L51-L53
-
+https://github.com/SaraCaste/Appendix/blob/0b8fcf0ef629096232f3029c8cf32e9fa7f21678/Appendix-A/data-enriching-platform/database-processing-module/updateOFF.py#L50-L51
 
 See Supabase plans and restrictions: https://supabase.com/pricing
 
 - Use another Storage solution <br/>
-In Appendix-A/data-donation-platform/src in the file Donation.jsx adjust the following:
+In Appendix-A/data-enriching-platform/database-processing-module the file updateOFF.py 
+  - Eliminate Supabase import
+  https://github.com/SaraCaste/Appendix/blob/0b8fcf0ef629096232f3029c8cf32e9fa7f21678/Appendix-A/data-enriching-platform/database-processing-module/updateOFF.py#L4 
+  - Change this code for one that aligns with your Storage solution. 
+https://github.com/SaraCaste/Appendix/blob/0b8fcf0ef629096232f3029c8cf32e9fa7f21678/Appendix-A/data-enriching-platform/database-processing-module/updateOFF.py#L46-L82
 
 
 
