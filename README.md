@@ -4,7 +4,7 @@
 ### Structure 
 Here you can see an overview of the structure of the Appendix with the most important files. Please notice that the "README.md" files contain important information for their correspondent module. In them, you will be able to see installation and adjustment instructions.
 
-```bash
+<pre>
 ├───Appendix-A
 │   ├───data-donation-platform
 │   │   ├───public
@@ -36,4 +36,4 @@ Here you can see an overview of the structure of the Appendix with the most impo
 │   ├───Confirmation of receipt of the voucher
 │   └───Sample data
 └───**README.md**
-```
+</pre>
