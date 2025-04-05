@@ -8,7 +8,10 @@ The Data Donation Platform was developed as a web application using React.js for
 Options:
 
 - Keep Supabase as Storage solution <br/>
-In Appendix-A/data-donation-platform/src the file SupabaseClient.jsx contains the credentials to connect with Supabase. Currently that account is the one that receives the Loyalty Card data files that are donated. Adjust this file with your Supabase credentials.
+  - In Appendix-A/data-donation-platform/src the file SupabaseClient.jsx contains the credentials to connect with Supabase. Currently that account is the one that receives the Loyalty Card data files that are donated. Adjust this file with your Supabase credentials. 
+  - Currently, the bucket that receives the donated file is called "Data Donation Platform". In case you switch this, update it.
+  https://github.com/SaraCaste/Appendix/blob/e3f6ba38134ebf485a789dfc117460891fc24273/Appendix-A/data-donation-platform/src/Donation.jsx#L152
+
 
 See Supabase plans and restrictions: https://supabase.com/pricing
 
