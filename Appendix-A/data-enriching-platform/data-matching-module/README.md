@@ -9,7 +9,7 @@ Options:
   - In Appendix-A/data-enriching-platform/data-matching-module the file app.py contains the credentials to connect with Supabase. Currently that account is the one that receives the updated Open Food Facts database and therefore, the one the DMM uses to download it. Adjust this file with your Supabase credentials.
   https://github.com/SaraCaste/Appendix/blob/e3f6ba38134ebf485a789dfc117460891fc24273/Appendix-A/data-enriching-platform/data-matching-module/backend/app.py#L21-L22
   - Currently, the bucket that receives the updated Open Food Facts database is called "Database Processing Module". In case you switched this in the Database Processing Module, update it.
-  https://github.com/SaraCaste/Appendix/blob/e3f6ba38134ebf485a789dfc117460891fc24273/Appendix-A/data-enriching-platform/data-matching-module/backend/app.py#L23C16-L23C42
+  https://github.com/SaraCaste/Appendix/blob/a15df562477479122909268ee438dd8bf7bc5ffa/Appendix-A/data-enriching-platform/data-matching-module/backend/app.py#L23
 
 See Supabase plans and restrictions: https://supabase.com/pricing
 
