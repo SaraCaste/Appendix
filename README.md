@@ -6,22 +6,22 @@
 │   ├───data-donation-platform
 │   │   ├───public
 │   │   ├───src
-|   |   |   ├───App.jsx
-|   |   |   ├───Donation.jsx
-|   |   |   └───SupabaseClient.jsx
+│   │   │   ├───App.jsx
+│   │   │   ├───Donation.jsx
+│   │   │   └───SupabaseClient.jsx
 │   │   ├───package.json
 │   └───data-enriching-platform
 │       ├───data-matching-module
 │       │   ├───backend
-|       |   |   ├───app.py
-|       |   |   └───requirements.txt
+│       │   │   ├───app.py
+│       │   │   └───requirements.txt
 │       │   ├───frontend
-│       │   |   ├───public
-│       │   |   ├───src
-│       │   |   |   ├───images
-│       │   |   |   ├───App.jsx
-│       │   |   |   └───Enricher.jsx             
-|       |   |   └───package.json
+│       │   │   ├───public
+│       │   │   ├───src
+│       │   │   │   ├───images
+│       │   │   │   ├───App.jsx
+│       │   │   │   └───Enricher.jsx             
+│       │   │   └───package.json
 │       │   └───package.json
 │       └───database-processing-module
 │           └───updateOFF.py
