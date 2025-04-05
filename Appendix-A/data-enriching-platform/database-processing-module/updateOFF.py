@@ -47,16 +47,17 @@ del OFF_db
 # CHANGE THIS for Storage tool of your choice 
 
 # Connect with Supabase
-url = "https://pokscockcjadaffhipop.supabase.co"
-key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBva3Njb2NrY2phZGFmZmhpcG9wIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjc3ODExMDksImV4cCI6MjA0MzM1NzEwOX0.L4Dx2JA0QiNeLC0_7m1jIe2SaZ1zHopG2cEbrh208A8"
-supabase: Client = create_client(url, key)
+SUPABASE_URL = "https://pokscockcjadaffhipop.supabase.co"
+SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBva3Njb2NrY2phZGFmZmhpcG9wIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjc3ODExMDksImV4cCI6MjA0MzM1NzEwOX0.L4Dx2JA0QiNeLC0_7m1jIe2SaZ1zHopG2cEbrh208A8"  # Replace with your actual key
+BUCKET_NAME = 'Database Processing Module'
+supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 # Delete previous versions of the OFF files in Supabase
 file_range = range(1, 7) 
 
 for i in file_range:
     file_name = f"OFF_db_p{i}.csv.gz"
-    supabase.storage.from_('Database Processing Module').remove([file_name])
+    supabase.storage.from_(BUCKET_NAME).remove([file_name])
 
 # Upload new DataFrames to Supabase
 for i in file_range:
@@ -67,15 +68,14 @@ for i in file_range:
     with gzip.GzipFile(fileobj=buffer, mode="w") as gz:
         file.to_csv(gz, index=False)
     buffer.seek(0)  
-
-    bucket_name = "Database Processing Module"  
+ 
     file_path = f"OFF_db_p{i}.csv.gz"  
 
     with tempfile.NamedTemporaryFile(delete=False, suffix=".gz") as temp_file:
         temp_file.write(buffer.getvalue()) 
         temp_file_path = temp_file.name
 
-    response = supabase.storage.from_(bucket_name).upload(file_path, temp_file_path)
+    response = supabase.storage.from_(BUCKET_NAME).upload(file_path, temp_file_path)
 
     os.remove(temp_file_path)
 
