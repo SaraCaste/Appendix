@@ -19,6 +19,8 @@ In Appendix-A/data-enriching-platform/data-matching-module in the file app.py
   https://github.com/SaraCaste/Appendix/blob/e3f6ba38134ebf485a789dfc117460891fc24273/Appendix-A/data-enriching-platform/data-matching-module/backend/app.py#L9
   - Change this code for one that aligns with your Storage solution. 
 https://github.com/SaraCaste/Appendix/blob/e3f6ba38134ebf485a789dfc117460891fc24273/Appendix-A/data-enriching-platform/data-matching-module/backend/app.py#L17-L69
+  - Adjust the function
+  https://github.com/SaraCaste/Appendix/blob/a15df562477479122909268ee438dd8bf7bc5ffa/Appendix-A/data-enriching-platform/data-matching-module/backend/app.py#L149
 
 
 
