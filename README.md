@@ -2,7 +2,7 @@
 ## Enriching Donated Supermarket Loyalty Card Data for Health and Sustainability Research.
 
 ### Structure 
-Here you can see an overview of the structure of the Appendix with the most important files. Please notice that the "README.md" files contain important information for their correspondent module. In them, you will be able to see installation and adjustment instructions.
+Here you can see an overview of the structure of the Appendix with the most important files. Please notice that the "README.md" files contain important information for their correspondent module. In them, you will be able to see installation and adjustment instructions. 
 
 <pre>
 ├───Appendix-A
@@ -13,7 +13,7 @@ Here you can see an overview of the structure of the Appendix with the most impo
 │   │   │   ├───Donation.jsx
 │   │   │   └───SupabaseClient.jsx
 │   │   ├───package.json
-│   │   └───**README.md**
+│   │   └───<b>README.md</b>
 │   └───data-enriching-platform
 │       ├───data-matching-module
 │       │   ├───backend
@@ -27,13 +27,13 @@ Here you can see an overview of the structure of the Appendix with the most impo
 │       │   │   │   └───Enricher.jsx             
 │       │   │   └───package.json
 │       │   ├───package.json
-│       │   └───**README.md**
+│       │   └───<b>README.md</b>
 │       ├───database-processing-module
-│       │    ├───updateOFF.py
-│       │    └───**README.md**
-│       └───**README.md**
+│       │   ├───updateOFF.py
+│       │   └───<b>README.md</b>
+│       └───<b>README.md</b>
 ├───Appendix-B
 │   ├───Confirmation of receipt of the voucher
 │   └───Sample data
-└───**README.md**
+└───<b>README.md</b>
 </pre>
