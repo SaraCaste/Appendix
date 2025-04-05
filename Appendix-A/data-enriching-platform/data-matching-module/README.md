@@ -1,7 +1,7 @@
 # 4	Application Implementation 
 ## 4.2	Data Enriching Platform (DEP)
 ### 4.2.2 Data Matching Module (DMM)
-The DDM is the core process in the matching and enriching of the data. It integrates React.js for the frontend and Python (Flask) for the backend. The Python backend processes the uploaded data, matches product information with Open Food Facts, and generates an enriched dataset that researchers can download. For database and storage, Supabase in its free version is used. However, choosing another storage solution is possible and researchers that want to use the DMM and adjust it.
+The DDM is the core process in the matching and enriching of the data. It integrates React.js for the frontend and Python (Flask) for the backend. The Python backend processes the uploaded data, matches product information with Open Food Facts, and generates an enriched dataset that researchers can download. For database and storage, Supabase in its free version is used. However, choosing another storage solution is possible and researchers that want to use the DMM can adjust it.
 
 Options:
 
