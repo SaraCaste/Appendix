@@ -4,7 +4,7 @@
 ### Structure 
 Here you can see an overview of the structure of the Appendix with the most important files. Please notice that the "README.md" files contain important information for their correspondent module. In them, you will be able to see installation and adjustment instructions. 
 
-Appendix-A: tools (detailed codes, instructions, design files) <br> 
+Appendix-A: Data Donation Platform and Data Enriching Platform (detailed codes, instructions, design files) <br> 
 Appendix-B: other files (participants information)
 <pre>
 ├───Appendix-A
