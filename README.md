@@ -10,6 +10,7 @@
 │   │   │   ├───Donation.jsx
 │   │   │   └───SupabaseClient.jsx
 │   │   ├───package.json
+│   │   └───README.md 
 │   └───data-enriching-platform
 │       ├───data-matching-module
 │       │   ├───backend
@@ -22,10 +23,14 @@
 │       │   │   │   ├───App.jsx
 │       │   │   │   └───Enricher.jsx             
 │       │   │   └───package.json
-│       │   └───package.json
-│       └───database-processing-module
-│           └───updateOFF.py
-└───Appendix-B
-    ├───Confirmation of receipt of the voucher
-    └───Sample data
+│       │   ├───package.json
+│       │   └───README.md 
+│       ├───database-processing-module
+│       │    ├───updateOFF.py
+│       │    └───README.md 
+│       └───README.md 
+├───Appendix-B
+│   ├───Confirmation of receipt of the voucher
+│   └───Sample data
+└───README.md 
 ```
