@@ -1,6 +1,7 @@
-# Welcome to the Appendix for the Enriching Donated Supermarket Loyalty Card Data for Health and Sustainability Research research.
+# Welcome to the Appendix for the Enriching Donated Supermarket Loyalty Card Data for Health and Sustainability Research.
 
 ## Structure 
+```bash
 ├───Appendix-A
 │   ├───data-donation-platform
 │   │   ├───public
@@ -27,3 +28,4 @@
 └───Appendix-B
     ├───Confirmation of receipt of the voucher
     └───Sample data
+```
