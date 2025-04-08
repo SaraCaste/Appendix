@@ -15,7 +15,7 @@ Appendix-B: other files (participants information)
 │   │   │   ├───Donation.jsx
 │   │   │   └───SupabaseClient.jsx
 │   │   ├───package.json
-│   │   └───<b>README.md</b>
+│   │   └───<b><a href="https://github.com/SaraCaste/Appendix/tree/main/Appendix-A/data-donation-platform">README.md</a> </b>
 │   └───data-enriching-platform
 │       ├───data-matching-module
 │       │   ├───backend
@@ -29,13 +29,13 @@ Appendix-B: other files (participants information)
 │       │   │   │   └───Enricher.jsx             
 │       │   │   └───package.json
 │       │   ├───package.json
-│       │   └───<b>README.md</b>
+│       │   └───<b><a href="https://github.com/SaraCaste/Appendix/tree/main/Appendix-A/data-enriching-platform/data-matching-module">README.md</a> </b>
 │       ├───database-processing-module
 │       │   ├───updateOFF.py
-│       │   └───<b>README.md</b>
-│       └───<b>README.md</b>
+│       │   └───<b><a href="https://github.com/SaraCaste/Appendix/tree/main/Appendix-A/data-enriching-platform/database-processing-module">README.md</a> </b>
+│       └───<b><a href="https://github.com/SaraCaste/Appendix/tree/main/Appendix-A/data-enriching-platform">README.md</a> </b>
 ├───Appendix-B
 │   ├───Confirmation of receipt of the voucher
 │   └───Sample data
-└───<b>README.md</b>
+└───<b><a href="https://github.com/SaraCaste/Appendix/tree/main">README.md</a> </b>
 </pre>
