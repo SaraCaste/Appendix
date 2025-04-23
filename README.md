@@ -28,7 +28,7 @@ Here you can see an overview of the structure of the Appendix with the most impo
 │       │   └───package.json
 │       ├───database-processing-module
 │       │    └───updateOFF.py
-└───**README.md**
+└───README.md
 ```
 
 # 4. Application Implementation

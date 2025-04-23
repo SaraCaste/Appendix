@@ -18,9 +18,9 @@ CORS(app) # Restrict CORS to the frontend URL
 # CHANGE THIS for Storage tool of your choice 
 
 # Constants and configuration
-SUPABASE_URL = "https://pokscockcjadaffhipop.supabase.co"
-SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBva3Njb2NrY2phZGFmZmhpcG9wIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjc3ODExMDksImV4cCI6MjA0MzM1NzEwOX0.L4Dx2JA0QiNeLC0_7m1jIe2SaZ1zHopG2cEbrh208A8"  # Replace with your actual key
-BUCKET_NAME = 'Database Processing Module'
+SUPABASE_URL = "https://pokscockchipop.supabase.co" #  Replace with your actual URL
+SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXB"  # Replace with your actual key
+BUCKET_NAME = 'Database Processing Module' # Replace with your actual Bucket
 BASE_FILENAME = 'OFF_db_p'
 FILE_NUMBERS = range(1, 7)  
 
