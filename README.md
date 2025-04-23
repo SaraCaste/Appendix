@@ -28,9 +28,6 @@ Here you can see an overview of the structure of the Appendix with the most impo
 │       │   └───package.json
 │       ├───database-processing-module
 │       │    └───updateOFF.py
-├───Appendix-B
-│   ├───Confirmation of receipt of the voucher
-│   └───Sample data
 └───**README.md**
 ```
 
