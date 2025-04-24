@@ -47,8 +47,8 @@ del OFF_db
 # CHANGE THIS for Storage tool of your choice 
 
 # Connect with Supabase
-SUPABASE_URL = "https://pokscockchipop.supabase.co" # Replace with your actual URL
-SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB"  # Replace with your actual key
+SUPABASE_URL = "https://pokscockcjadaffhipop.supabase.co" # Replace with your actual URL
+SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBva3Njb2NrY2phZGFmZmhpcG9wIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjc3ODExMDksImV4cCI6MjA0MzM1NzEwOX0.L4Dx2JA0QiNeLC0_7m1jIe2SaZ1zHopG2cEbrh208A8"  # Replace with your actual key
 BUCKET_NAME = 'Database Processing Module' # Replace with your actual Bucket
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
