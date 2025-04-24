@@ -56,7 +56,7 @@ In Appendix-A/data-donation-platform/src in the file Donation.jsx adjust the fol
   https://github.com/SaraCaste/Appendix/blob/6b6661e31ccd9f55616992bdae41322432830887/Appendix%20A/data-donation-platform/src/Donation.jsx#L253
 
 In case the structure of the loyalty card changes, please update the sheet descriptions:
-https://github.com/SaraCaste/Appendix/blob/62b28c36324508b98e4456f9026d6043baa6a506/Appendix-A/data-donation-platform/src/Donation.jsx#L73-84
+https://github.com/SaraCaste/Appendix/blob/62b28c36324508b98e4456f9026d6043baa6a506/Appendix%20A/data-donation-platform/src/Donation.jsx#L73-84
 
 ## 4.2	Data Enriching Platform (DEP)
 
