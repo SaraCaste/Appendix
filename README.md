@@ -55,6 +55,9 @@ In Appendix-A/data-donation-platform/src in the file Donation.jsx adjust the fol
   - Update the call to the uploadFileSupabase() arrow function
   https://github.com/SaraCaste/Appendix/blob/6b6661e31ccd9f55616992bdae41322432830887/Appendix%20A/data-donation-platform/src/Donation.jsx#L253
 
+In case the structure of the loyalty card changes, please update the sheet descriptions:
+https://github.com/SaraCaste/Appendix/blob/62b28c36324508b98e4456f9026d6043baa6a506/Appendix-A/data-donation-platform/src/Donation.jsx#L73-84
+
 ## 4.2	Data Enriching Platform (DEP)
 
 ### Installation of the Data Enriching Platform
@@ -240,8 +243,8 @@ https://github.com/SaraCaste/Appendix/blob/e3f6ba38134ebf485a789dfc117460891fc24
   - Adjust the function
   https://github.com/SaraCaste/Appendix/blob/a15df562477479122909268ee438dd8bf7bc5ffa/Appendix-A/data-enriching-platform/data-matching-module/backend/app.py#L149
 
-
-
+In case the fields of the loyalty card need to be updated, change the following line, and update the name callings of the variables:
+https://github.com/SaraCaste/Appendix/blob/62b28c36324508b98e4456f9026d6043baa6a506/Appendix-A/data-enriching-platform/data-matching-module/backend/app.py#L159-60
 
 
 
