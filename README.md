@@ -219,7 +219,7 @@ https://github.com/SaraCaste/Appendix/blob/0b8fcf0ef629096232f3029c8cf32e9fa7f21
 After updating credentials, open and run the [updateOFF.py](https://github.com/SaraCaste/data-enriching-platform/tree/main/database-processing-module) code in your prefered tool. But [Visual Studio Code](https://code.visualstudio.com/Download) is recomended for running, testing and adjusting.
 
 In case the fields of the Open Food Facts database change, please update them.
-https://github.com/SaraCaste/Appendix/blob/d9da506500f014c28d2e3b8e55410da064b33578/Appendix-A/data-enriching-platform/database-processing-module/updateOFF.py#L9
+  https://github.com/SaraCaste/Appendix/blob/0b8fcf0ef629096232f3029c8cf32e9fa7f21678/Appendix-A/data-enriching-platform/database-processing-module/updateOFF.py#L9 
 
 ### 4.2.2 Data Matching Module (DMM)
 The DDM is the core process in the matching and enriching of the data. It integrates React.js for the frontend and Python (Flask) for the backend. The Python backend processes the uploaded data, matches product information with Open Food Facts, and generates an enriched dataset that researchers can download. For database and storage, Supabase in its free version is used. However, choosing another storage solution is possible and researchers that want to use the DMM can adjust it.
@@ -244,7 +244,7 @@ https://github.com/SaraCaste/Appendix/blob/e3f6ba38134ebf485a789dfc117460891fc24
   https://github.com/SaraCaste/Appendix/blob/a15df562477479122909268ee438dd8bf7bc5ffa/Appendix-A/data-enriching-platform/data-matching-module/backend/app.py#L149
 
 In case the fields of the loyalty card need to be updated, change the following line, and update the name callings of the variables:
-https://github.com/SaraCaste/Appendix/blob/62b28c36324508b98e4456f9026d6043baa6a506/Appendix-A/data-enriching-platform/data-matching-module/backend/app.py#L159-60
+https://github.com/SaraCaste/Appendix/blob/62b28c36324508b98e4456f9026d6043baa6a506/Appendix-A/data-enriching-platform/data-matching-module/backend/app.py#L159-L60
 
 
 
