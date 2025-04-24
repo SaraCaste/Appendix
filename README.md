@@ -244,7 +244,7 @@ https://github.com/SaraCaste/Appendix/blob/e3f6ba38134ebf485a789dfc117460891fc24
   https://github.com/SaraCaste/Appendix/blob/a15df562477479122909268ee438dd8bf7bc5ffa/Appendix-A/data-enriching-platform/data-matching-module/backend/app.py#L149
 
 In case the fields of the loyalty card need to be updated, change the following line, and update the name callings of the variables:
-https://github.com/SaraCaste/Appendix/blob/62b28c36324508b98e4456f9026d6043baa6a506/Appendix-A/data-enriching-platform/data-matching-module/backend/app.py#L159-L60
+https://github.com/SaraCaste/Appendix/blob/62b28c36324508b98e4456f9026d6043baa6a506/Appendix-A/data-enriching-platform/data-matching-module/backend/app.py#L159-L160
 
 
 
