@@ -156,6 +156,7 @@ def process_request():
 
     # Extract data
     raw_data = request.data
+    # In case the fields of the Deutschland Card change, or another loyalty card structure is used, change this part
     columns_to_extract = ['TRANSAKTIONSDATUM','PARTNER','ARTIKELCODE', 'ARTIKELBESCHREIBUNG', 'INCENTIVIERTER_UMSATZ' ]  
     participants_db = pd.read_excel(io.BytesIO(raw_data), usecols=columns_to_extract)
     # Filter and normalize participants data

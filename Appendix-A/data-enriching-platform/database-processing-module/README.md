@@ -9,8 +9,6 @@ Options:
   - In Appendix-A/data-enriching-platform/database-processing-module the file updateOFF.py contains the credentials to connect with Supabase. Currently that account is the one that receives the updated Open Food Facts database. Adjust this file with your Supabase credentials.
 https://github.com/SaraCaste/Appendix/blob/0b8fcf0ef629096232f3029c8cf32e9fa7f21678/Appendix-A/data-enriching-platform/database-processing-module/updateOFF.py#L50-L51
   - Currently, the bucket that receives the updated Open Food Facts database is called "Database Processing Module". In case you switch this, update it.
-s
-
 
 See Supabase plans and restrictions: https://supabase.com/pricing
 
@@ -21,6 +19,8 @@ In Appendix-A/data-enriching-platform/database-processing-module the file update
   - Change this code for one that aligns with your Storage solution. 
 https://github.com/SaraCaste/Appendix/blob/0b8fcf0ef629096232f3029c8cf32e9fa7f21678/Appendix-A/data-enriching-platform/database-processing-module/updateOFF.py#L46-L82
 
+In case the fields of the Open Food Facts database change, please update them.
+https://github.com/SaraCaste/Appendix/blob/d9da506500f014c28d2e3b8e55410da064b33578/Appendix-A/data-enriching-platform/database-processing-module/updateOFF.py#L9
 
 
 

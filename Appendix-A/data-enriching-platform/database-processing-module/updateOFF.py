@@ -5,7 +5,7 @@ from supabase import create_client, Client
 import io
 import tempfile
 
-# Fields to bring from the Open Food Facts database
+# Fields to bring from the Open Food Facts database, update if necessary
 fields=["code","url","last_updated_t","product_name","packaging_en","brands","countries_en","ingredients_text","nutriscore_grade","nova_group","pnns_groups_1","pnns_groups_2","environmental_score_grade","unique_scans_n","completeness","main_category_en","energy-kcal_100g","fat_100g","saturated-fat_100g","carbohydrates_100g","sugars_100g","fiber_100g","salt_100g","proteins_100g"]
 
 # Read the CSV from Open Food Facts in chunks
